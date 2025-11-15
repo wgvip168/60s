@@ -25,6 +25,7 @@ import { serviceLunar } from './modules/lunar/lunar.module.ts'
 import { serviceMaoyan } from './modules/maoyan/maoyan.module.ts'
 import { serviceNcm } from './modules/ncm.module.ts'
 import { serviceOG } from './modules/og.module.ts'
+import { serviceQQ } from './modules/qq.module.ts'
 import { serviceQRCode } from './modules/qrcode/qrcode.module.ts'
 import { serviceTodayInHistory } from './modules/today-in-history.module.ts'
 import { serviceToutiao } from './modules/toutiao.module.ts'
@@ -41,6 +42,8 @@ import { servicePassword } from './modules/password/password.module.ts'
 import { serviceColor } from './modules/color.module.ts'
 import { serviceKuan } from './modules/kuan.module.ts'
 import { serviceLyric } from './modules/lyric.module.ts'
+import { serviceMoyu } from './modules/moyu.module.ts'
+import { serviceFuelPrice } from './modules/fuel-price/fuel-price.module.ts'
 
 // import { serviceSlackingCalendar } from './modules/slacking-calendar/slacking-calendar.module.ts'
 
@@ -93,6 +96,7 @@ appRouter.get('/qrcode', serviceQRCode.handle())
 appRouter.get('/dad-joke', serviceDadJoke.handle())
 appRouter.get('/rednote', serviceRednote.handle())
 appRouter.get('/dongchedi', serviceDongchedi.handle())
+appRouter.get('/moyu', serviceMoyu.handle())
 
 appRouter.get('/health', serviceHealth.handle())
 appRouter.get('/password', servicePassword.handle())
@@ -121,6 +125,7 @@ appRouter.get('/color/random', serviceColor.handle())
 appRouter.get('/color/palette', serviceColor.handlePalette())
 
 appRouter.all('/lyric', serviceLyric.handle())
+appRouter.all('/fuel-price', serviceFuelPrice.handle())
 
 // === 以下为支持 body 解析参数的接口 ===
 appRouter.all('/og', serviceOG.handle())
@@ -131,6 +136,7 @@ appRouter.all('/fanyi/langs', serviceFanyi.handleLangs())
 
 // === 以下为测试接口，beta 前缀，接口可能不稳定 ===
 appRouter.get('/beta/kuan', serviceKuan.handle())
+appRouter.get('/beta/qq/profile', serviceQQ.handle())
 
 // === 以下为待定接口，还在计划、开发中 ===
 // appRouter.get('/slacking-calendar', serviceSlackingCalendar.handle())
